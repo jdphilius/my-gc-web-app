@@ -62,3 +62,4 @@ C:\Users\Jean\Documents\GitHub\my-gc-web-app\GoogCalWebApp\GoogCalWebApp\bin\Mic
 C:\Users\Jean\Documents\GitHub\my-gc-web-app\GoogCalWebApp\GoogCalWebApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Jean\Documents\GitHub\my-gc-web-app\GoogCalWebApp\GoogCalWebApp\obj\Debug\GoogCalWebApp.dll
 C:\Users\Jean\Documents\GitHub\my-gc-web-app\GoogCalWebApp\GoogCalWebApp\obj\Debug\GoogCalWebApp.pdb
+C:\Users\Jean\Documents\GitHub\my-gc-web-app\GoogCalWebApp\GoogCalWebApp\obj\Debug\GoogCalWebApp.csprojResolveAssemblyReference.cache
