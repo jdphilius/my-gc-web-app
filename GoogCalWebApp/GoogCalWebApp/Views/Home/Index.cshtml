@@ -1,4 +1,15 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<GoogCalWebApp.Models.Event>
+
+@{
+    ViewBag.Title = "Calendar Events for next 30 Days.";
+    
+    
 }
 
+
+
+
+@foreach (var item in Model)
+{
+    <h2> ID : @item.Id </h2>  
+}

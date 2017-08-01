@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoogCalWebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,26 @@ namespace GoogCalWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private CalendarEventContext db = new CalendarEventContext();
+
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                var calendarEvents = db.Events.ToList(); 
+                return View(calendarEvents);
+
+            }
+            catch (Exception) 
+            {
+                
+                throw;
+            }
+            
+
+            
+            
+            //return View();
         }
 
         public ActionResult About()
