@@ -58,11 +58,11 @@ namespace GoogCalWebApp
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "113467810390-j9sevqku1el90kf4vkef419vaa2ncukk.apps.googleusercontent.com",
+                ClientSecret = "IzyO4e9TseAXP6I1TY5slAol"
+            });
         }
     }
 }
