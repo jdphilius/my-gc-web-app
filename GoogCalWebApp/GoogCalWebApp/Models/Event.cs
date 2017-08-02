@@ -6,9 +6,9 @@ using System.Web;
 
 namespace GoogCalWebApp.Models
 {
-    public class Event
+    public class CalendarEvent
     {   
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Title { get; set; }
 
@@ -16,8 +16,16 @@ namespace GoogCalWebApp.Models
 
         public string Location { get; set; }
 
-        public DateTime From { get; set; }
+        public string StartDate { get; set; }
 
-        public DateTime To { get; set; }
+        
+
+        public string EndDate { get; set; }
+
+
+
+        public string StartTime { get; set; }
+
+        public string EndTime { get; set; }
     }
 }

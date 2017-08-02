@@ -10,11 +10,11 @@ namespace GoogCalWebApp.Models
     {
         protected override void Seed(CalendarEventContext context)
         {
-            var events = new List<Event>
+            var events = new List<CalendarEvent>
             {
-                new Event { Id = 1, 
-                            From = DateTime.Parse("01/01/2017"), 
-                            To = DateTime.Parse("01/01/2017"),
+                new CalendarEvent { Id = "1", 
+                            StartDate = DateTime.Parse("01/01/2017").ToString(), 
+                            EndDate = DateTime.Parse("01/01/2017").ToString(),
                             Title = "DevOps meeting",
                             Info = "Discussion around continuous integration & continuous deploymnet.",
                             Location = "Lightning Conference Room." }

@@ -8,6 +8,6 @@ namespace GoogCalWebApp.Models
 {
     public class CalendarEventContext : DbContext
     {
-        public DbSet<Event> Events { get; set; }
+        public DbSet<CalendarEvent> Events { get; set; }
     }
 }

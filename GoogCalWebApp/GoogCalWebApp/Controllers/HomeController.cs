@@ -36,60 +36,53 @@ namespace GoogCalWebApp.Controllers
         {
             try
             {
+                //Google authentication using OAuth for users calendar
+                UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                new ClientSecrets
+                {
+                    ClientId = "113467810390-j9sevqku1el90kf4vkef419vaa2ncukk.apps.googleusercontent.com",
+                    ClientSecret = "IzyO4e9TseAXP6I1TY5slAol",
+                },
+                new[] { CalendarService.Scope.Calendar },
+                "user",
+                CancellationToken.None).Result;
+
+                // Create the service.
+                var calservice = new CalendarService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = "Calendar API Sample",
+                });
 
 
-                //UserCredential credential;
+                EventsResource.ListRequest req = calservice.Events.List("primary");
+                req.TimeMin = Convert.ToDateTime(DateTime.Now);
+                req.TimeMax = Convert.ToDateTime(req.TimeMin).AddDays(30.0);
+                req.SingleEvents = true;
+                req.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+                Events events = req.Execute();
 
-                //using (var stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
-                //{
-                //    string credPath = System.Environment.GetFolderPath(
-                //        System.Environment.SpecialFolder.Personal);
-                //    credPath = Path.Combine(credPath, ".credentials/calendar-dotnet-quickstart.json");
+                foreach (var eventdata in events.Items)
+                {
+                    var item = new CalendarEvent
+                    {
+                        Id = eventdata.Id,
+                        Title = eventdata.Summary,
+                        Info = eventdata.Description,
+                        Location = eventdata.Location
 
-                //    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                //        GoogleClientSecrets.Load(stream).Secrets,
-                //        Scopes,
-                //        "user",
-                //        CancellationToken.None,
-                //        new FileDataStore(credPath, true)).Result;
-                //    Console.WriteLine("Credential file saved to: " + credPath);
-                //}
+                    };
+                    EventDateTime start = eventdata.Start;
+                    item.StartDate = Convert.ToString(start.DateTime);
+                    item.StartTime = Convert.ToDateTime(start.DateTime).ToString("HH:mm");
+                    EventDateTime end = eventdata.End;
+                    item.EndDate = Convert.ToString(end.DateTime);
+                    item.EndTime = Convert.ToDateTime(end.DateTime).ToString("HH:mm");
+                }
 
-                //// Create Google Calendar API service.
-                //var service = new CalendarService(new BaseClientService.Initializer()
-                //{
-                //    HttpClientInitializer = credential,
-                //    ApplicationName = ApplicationName,
-                //});
+               //calendarEvents.Add(item);
 
-                //// Define parameters of request.
-                //EventsResource.ListRequest request = service.Events.List("primary");
-                //request.TimeMin = DateTime.Now;
-                //request.ShowDeleted = false;
-                //request.SingleEvents = true;
-                //request.MaxResults = 10;
-                //request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
-                //// List events.
-                //Events events = request.Execute();
-                //Console.WriteLine("Upcoming events:");
-                //if (events.Items != null && events.Items.Count > 0)
-                //{
-                //    foreach (var eventItem in events.Items)
-                //    {
-                //        string when = eventItem.Start.DateTime.ToString();
-                //        if (String.IsNullOrEmpty(when))
-                //        {
-                //            when = eventItem.Start.Date;
-                //        }
-                //        Console.WriteLine("{0} ({1})", eventItem.Summary, when);
-                //    }
-                //}
-                //else
-                //{
-                //    Console.WriteLine("No upcoming events found.");
-                //}
-                //Console.Read();
 
 
                 var calendarEvents = db.Events.ToList();
@@ -107,6 +100,9 @@ namespace GoogCalWebApp.Controllers
 
             //return View();
         }
+
+
+
 
         public ActionResult About()
         {
