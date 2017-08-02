@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GoogCalWebApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ClientId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">113467810390-j9sevqku1el90kf4vkef419vaa2ncukk.apps.googleusercontent.com</Value>
+    </Setting>
+    <Setting Name="ClientSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">IzyO4e9TseAXP6I1TY5slAol</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

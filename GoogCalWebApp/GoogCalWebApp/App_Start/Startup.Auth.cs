@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using GoogCalWebApp.Models;
+using System.Configuration;
 
 namespace GoogCalWebApp
 {
@@ -62,6 +63,11 @@ namespace GoogCalWebApp
             {
                 ClientId = "113467810390-j9sevqku1el90kf4vkef419vaa2ncukk.apps.googleusercontent.com",
                 ClientSecret = "IzyO4e9TseAXP6I1TY5slAol"
+
+                //ClientId = ConfigurationManager.AppSettings["ClientId"],
+                //ClientSecret = ConfigurationManager.AppSettings["ClientSecret"]
+
+
             });
         }
     }
