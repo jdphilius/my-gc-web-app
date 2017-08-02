@@ -12,14 +12,15 @@ namespace GoogCalWebApp.Models
         {
             var events = new List<Event>
             {
-                new Event { Id = 2}
+                new Event { Id = 1, 
+                            From = DateTime.Parse("01/01/2017"), 
+                            To = DateTime.Parse("01/01/2017"),
+                            Title = "DevOps meeting",
+                            Info = "Discussion around continuous integration & continuous deploymnet.",
+                            Location = "Lightning Conference Room." }
             };
 
-
-            foreach(var temp in events)
-            {
-                context.Events.Add(temp);
-            }
+            events.ForEach(x => context.Events.Add(x));
 
             context.SaveChanges();
         }
