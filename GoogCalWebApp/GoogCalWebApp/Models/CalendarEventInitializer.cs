@@ -16,7 +16,7 @@ namespace GoogCalWebApp.Models
                             StartDate = DateTime.Parse("01/01/2017").ToString(), 
                             EndDate = DateTime.Parse("01/01/2017").ToString(),
                             Title = "DevOps meeting",
-                            Info = "Discussion around continuous integration & continuous deploymnet.",
+                            Info = "Discussion around continuous integration & continuous deployment.",
                             Location = "Lightning Conference Room." }
             };
 

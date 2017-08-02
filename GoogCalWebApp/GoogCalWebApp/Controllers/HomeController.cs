@@ -78,12 +78,11 @@ namespace GoogCalWebApp.Controllers
                     EventDateTime end = eventdata.End;
                     item.EndDate = Convert.ToString(end.DateTime);
                     item.EndTime = Convert.ToDateTime(end.DateTime).ToString("HH:mm");
+
+                    db.Events.Add(item);
                 }
 
-               //calendarEvents.Add(item);
-
-
-
+                db.SaveChanges();
 
                 var calendarEvents = db.Events.ToList();
                 return View(calendarEvents);
